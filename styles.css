@@ -90,3 +90,23 @@ input[type=range] {
   color: #007bff;
   text-decoration: none;
 }
+.login a:hover {
+  text-decoration: underline;
+}
+
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  display: inline-block;
+  background-color: #ffe066;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 10px;
+}
