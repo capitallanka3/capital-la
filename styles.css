@@ -1,0 +1,92 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.loan-box {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.loan-title {
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.amount {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type=range] {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.repayment {
+  background: #fff;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.apply-btn {
+  background: #00b14f;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background: #019943;
+}
+
+.login {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.login a {
+  color: #00b14f;
+  text-decoration: none;
+}

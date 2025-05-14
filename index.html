@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Loan</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Get up to රු 100,000 loan fully online!</h1>
+    <p class="subtitle">Simple application process.<br>Only NIC is required.</p>
+
+    <div class="loan-box">
+      <p class="loan-title">Set up your loan</p>
+      <div class="amount">රු <span id="loanAmount">10,000</span></div>
+      <input type="range" id="loanSlider" min="3000" max="100000" step="1000" value="10000"/>
+      <div class="range-labels">
+        <span>3,000</span>
+        <span>100,000</span>
+      </div>
+
+      <div class="repayment">
+        <p>Total repayment amount: <strong>රු <span id="repaymentAmount">10,800</span></strong></p>
+        <p>Interest rate: <strong>8%</strong></p>
+      </div>
+    </div>
+
+    <button class="apply-btn">Apply for a loan</button>
+    <p class="login">Already a customer? <a href="#">Login here</a></p>
+  </div>
+
+  <script>
+    const slider = document.getElementById('loanSlider');
+    const loanAmount = document.getElementById('loanAmount');
+    const repaymentAmount = document.getElementById('repaymentAmount');
+
+    function updateAmounts(value) {
+      loanAmount.textContent = parseInt(value).toLocaleString();
+      const interest = value * 0.08;
+      repaymentAmount.textContent = (parseFloat(value) + interest).toLocaleString(undefined, {maximumFractionDigits: 0});
+    }
+
+    slider.addEventListener('input', (e) => {
+      updateAmounts(e.target.value);
+    });
+
+    // Initialize
+    updateAmounts(slider.value);
+  </script>
+</body>
+</html>
