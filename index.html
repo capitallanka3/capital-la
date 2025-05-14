@@ -4,55 +4,205 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CashX Free Loan</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .main-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .loan-card {
+      background-color: #f1f5ff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .loan-amount {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    input[type=range] {
+      width: 100%;
+    }
+
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .summary {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .apply-btn {
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px;
+      width: 100%;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .login-text {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .login-text a {
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    .steps-section {
+      margin-top: 40px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .step .number {
+      background: #cbd5e1;
+      color: #2563eb;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin-right: 15px;
+    }
+
+    .step .text {
+      font-size: 14px;
+    }
+
+    .step.completed .check {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 5px 8px;
+      font-size: 14px;
+    }
+
+    .features-section {
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      display: inline-block;
+      background-color: #ffe066;
+      border-radius: 10px;
+      padding: 10px;
+      margin-right: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+  </style>
 </head>
 <body>
+
   <div class="main-container">
-    <div class="loan-box">
+    <div class="loan-card">
       <h1>Get up to රු 500,000 loan fully online!</h1>
       <p>Simple application process.<br>Only NIC is required.</p>
-      <div class="loan-card">
-        <label for="loanRange">Set up your loan</label>
-        <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
-        <input type="range" id="loanRange" min="30000" max="500000" step="1000" value="30000" />
-        <div class="range-labels">
-          <span>30,000</span>
-          <span>500,000</span>
+      <label for="loanRange">Set up your loan</label>
+      <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
+      <input type="range" id="loanRange" min="30000" max="500000" step="1000" value="30000" />
+      <div class="range-labels">
+        <span>30,000</span>
+        <span>500,000</span>
+      </div>
+      <div class="summary">
+        <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
+        <p>Interest rate: <strong>8%</strong></p>
+      </div>
+      <button class="apply-btn">Apply for a loan</button>
+      <p class="login-text">Already a customer? <a href="#">Login here</a></p>
+    </div>
+
+    <div class="steps-section">
+      <div class="step" id="step1">
+        <div class="number">1</div>
+        <div class="text">
+          <strong>අයදුම්පත සම්පූර්ණ කරන්න</strong><br>
+          අයදුම්පත සම්පූර්ණ කරන්න
         </div>
-        <div class="summary">
-          <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
-          <p>Interest rate: <strong>8%</strong></p>
+      </div>
+
+      <div class="step" id="step2">
+        <div class="number">2</div>
+        <div class="text">
+          <strong>තිරණය සඳහා රැදී සිටින්න</strong><br>
+          විනාඩි කිහිපයකින් තිරණය ඔබට ලැබෙනු ඇත
         </div>
-        <button class="apply-btn">Apply for a loan</button>
-        <p class="login-text">Already a customer? <a href="#">Login here</a></p>
       </div>
-    </div>
-  </div>
 
-  <div class="steps-container">
-    <div class="step" id="step1">
-      <div class="number">1</div>
-      <div class="text">
-        <strong>අයදුම්පත සම්පූර්ණ කරන්න</strong><br>
-        අයදුම්පත සම්පූර්ණ කරන්න
+      <div class="step completed" id="step3">
+        <div class="number">3</div>
+        <div class="text">
+          <strong>ඔබගේ ගිණුමට මුදල් ලැබාගෙන</strong><br>
+          අනුමත වී මිනිත්තු කිහිපයකින් ඔබේ ගිණුමට මුදල් ලැබේ
+        </div>
+        <div class="check">✔</div>
       </div>
     </div>
 
-    <div class="step" id="step2">
-      <div class="number">2</div>
-      <div class="text">
-        <strong>තිරණය සඳහා රැදී සිටින්න</strong><br>
-        විනාඩි කිහිපයකින් තිරණය ඔබට ලැබෙනු ඇත
+    <div class="features-section">
+      <h2>අපගේ විශේෂත්වය</h2>
+      <div class="card">
+        <div class="icon">~</div>
+        <h3>ලභාදයකි</h3>
+        <p>ඔබ ගෙවිය යුතුය ඇතුළු අවම ආපසු ගෙවීම් මුදලක් නිසා අපගේ සේවාව සුපිරියකි</p>
       </div>
-    </div>
-
-    <div class="step completed" id="step3">
-      <div class="number">3</div>
-      <div class="text">
-        <strong>ඔබගේ ගිණුමට මුදල් ලැබාගෙන</strong><br>
-        අනුමත වී මිනිත්තු කිහිපයකින් ඔබේ ගිණුමට මුදල් ලැබේ
+      <div class="card">
+        <div class="icon">✓</div>
+        <h3>විශ්වාසනීයයි</h3>
+        <p>CashX යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
       </div>
-      <div class="check">✔</div>
+      <div class="card">
+        <div class="icon">101</div>
+        <h3>සරලයි</h3>
+        <p>ඉක්මන් සහ සරල මුදල් විස්දැම් ඔබගේ නිවසේ සිටම විනාඩි පහක කාලයක තුළ</p>
+      </div>
     </div>
   </div>
 
@@ -69,5 +219,6 @@
       repaymentAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
     });
   </script>
+
 </body>
 </html>
