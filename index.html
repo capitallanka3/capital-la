@@ -2,122 +2,112 @@
 <html lang="si">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CashSpace UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Calculator</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-family: 'Noto Sans Sinhala', sans-serif;
-      background: #fff;
-    }
-
-    .hero {
-      position: relative;
-      background: url('your-background-image.jpg') no-repeat center center/cover;
-      height: 500px;
-      color: white;
       padding: 20px;
+      background-color: #f8f9fa;
     }
 
-    .logo {
-      width: 150px;
-    }
-
-    .language {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-weight: bold;
-    }
-
-    .headline {
-      margin-top: 120px;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .subtext {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    .loan-box {
+    .box {
+      max-width: 400px;
+      margin: auto;
       background: white;
-      margin: -50px 20px 0 20px;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      position: relative;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    .loan-header {
-      font-size: 20px;
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      margin-top: 20px;
       font-weight: bold;
     }
 
-    .amount {
-      float: right;
-      color: purple;
-      font-size: 20px;
-    }
-
-    .slider {
+    input[type="range"] {
       width: 100%;
-      margin: 20px 0;
     }
 
-    .slider input[type=range] {
-      width: 100%;
-      appearance: none;
-      background: linear-gradient(to right, #00e6e6, #a64dff);
-      height: 10px;
-      border-radius: 5px;
-      outline: none;
-    }
-
-    .apply-button {
-      display: block;
-      text-align: center;
-      background: linear-gradient(to right, #a64dff, #00e6e6);
-      color: white;
-      font-size: 18px;
-      padding: 15px;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-
-    .footer-note {
-      font-size: 12px;
-      text-align: center;
-      margin-top: 15px;
+    .values {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
       color: #555;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 16px;
+      padding: 10px;
+      background-color: #e9fbe9;
+      border: 1px solid #b2e8b2;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .button {
+      margin-top: 20px;
+      width: 100%;
+      background: linear-gradient(to right, #28a745, #1cc88a);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <img src="logo.png" alt="CashSpace Logo" class="logo">
-    <div class="language">SI ▼</div>
-    <div class="headline">24/7 වසර පුරාම ණයක් ලබා ගන්න</div>
-    <div class="subtext">දැන් එය වඩාත් පහසුයි අඟහරුවාදා මුදල් තොර ගන්න</div>
+<div class="box">
+  <h2>ලොන් ගණනයකිරීම්</h2>
+
+  <div class="label">මුදල තෝරන්න (Rs)</div>
+  <input type="range" id="loanSlider" min="2000" max="100000" step="1000" value="2000">
+  <div class="values">
+    <span>Rs. 2,000</span>
+    <span>Rs. 100,000</span>
   </div>
 
-  <div class="loan-box">
-    <div class="loan-header">මුදල තෝරන්න <span class="amount">Rs. 2,000</span></div>
-    <div class="slider">
-      <input type="range" min="2000" max="120000" value="2000">
-      <div style="display: flex; justify-content: space-between;">
-        <span>Rs. 2,000</span>
-        <span>Rs. 120,000</span>
-      </div>
-    </div>
-    <a href="#" class="apply-button">Rs. 2,000 මුදල ලබා ගන්න</a>
-    <div class="footer-note">
-      අපේ සභාපතින් බොහෝවිටක් නව පාරිභෝගිකයන් සඳහා 0% පොලීය
-    </div>
-  </div>
+  <div class="label">තෝරාගත් මුදල: <span id="amount">Rs. 2,000</span></div>
+  <div class="label">පොලිය: <span id="interestRate">0%</span></div>
+  <div class="label">මුලු ගෙවීම්: <span id="total">Rs. 2,000</span></div>
+
+  <button class="button">Apply for Loan</button>
+</div>
+
+<script>
+  const slider = document.getElementById('loanSlider');
+  const amountText = document.getElementById('amount');
+  const interestText = document.getElementById('interestRate');
+  const totalText = document.getElementById('total');
+
+  function updateValues() {
+    const loanAmount = parseInt(slider.value);
+    amountText.textContent = Rs. ${loanAmount.toLocaleString()};
+
+    // Interest rate between 0% - 8%
+    const interestRate = ((loanAmount - 2000) / (100000 - 2000)) * 8;
+    const interestRounded = interestRate.toFixed(2);
+
+    interestText.textContent = ${interestRounded}%;
+
+    // Total = loan + interest
+    const totalAmount = loanAmount + (loanAmount * (interestRounded / 100));
+    totalText.textContent = Rs. ${Math.round(totalAmount).toLocaleString()};
+  }
+
+  slider.addEventListener('input', updateValues);
+  updateValues(); // Initial call
+</script>
 
 </body>
 </html>
