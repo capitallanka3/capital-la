@@ -1,49 +1,52 @@
 body {
   font-family: 'Noto Sans Sinhala', sans-serif;
-  background: #f1f5ff;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
 .main-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-.loan-box {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
 .loan-card {
-  margin-top: 20px;
+  background-color: #f1f5ff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
 .loan-amount {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: bold;
   margin: 10px 0;
+}
+
+input[type=range] {
+  width: 100%;
 }
 
 .range-labels {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  margin-top: 5px;
+  color: #555;
 }
 
 .summary {
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 14px;
 }
 
 .apply-btn {
-  background: #1e3a8a;
+  background-color: #1e3a8a;
   color: white;
   border: none;
   border-radius: 25px;
@@ -56,54 +59,132 @@ body {
 }
 
 .login-text {
-  margin-top: 10px;
+  text-align: center;
   font-size: 14px;
+  margin-top: 10px;
 }
 
-.steps-container {
-  background: linear-gradient(to bottom, #2563eb, #1e3a8a);
-  border-radius: 30px;
-  padding: 30px;
-  max-width: 900px;
-  color: white;
-  margin: 40px auto;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.login-text a {
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.steps-section {
+  margin-top: 40px;
 }
 
 .step {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  padding: 15px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
   position: relative;
 }
 
-.number {
+.step .number {
   background: #cbd5e1;
   color: #2563eb;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   padding: 10px 15px;
   border-radius: 12px;
-  margin-bottom: 10px;
-  display: inline-block;
+  margin-right: 15px;
 }
 
-.text {
+.step .text {
   font-size: 14px;
 }
 
-.completed .check {
+.step.completed .check {
   position: absolute;
+  right: 0;
   top: 10px;
-  right: 10px;
   background: #22c55e;
   color: white;
   font-weight: bold;
   border-radius: 50%;
-  padding: 5px 7px;
+  padding: 5px 8px;
   font-size: 14px;
+}
+
+.features-section {
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  display: inline-block;
+  background-color: #ffe066;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #f1f5ff;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.contact-info .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-info .icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.footer-links {
+  margin: 15px 0;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+.company-info {
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1e3a8a;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
 }
