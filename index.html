@@ -1,74 +1,66 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Online Loan</title>
+  <title>CashX Free Loan</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Get up to රු 500,000 loan fully online!</h1>
-    <p class="subtitle">Simple application process.<br>Only NIC is required.</p>
-
+  <div class="main-container">
     <div class="loan-box">
-      <p class="loan-title">Set up your loan</p>
-      <div class="amount">රු <span id="loanAmount">30,000</span></div>
-      <input type="range" id="loanSlider" min="30000" max="500000" step="1000" value="30000"/>
-      <div class="range-labels">
-        <span>30,000</span>
-        <span>500,000</span>
-      </div>
-
-      <div class="repayment">
-        <p>Total repayment amount: <strong>රු <span id="repaymentAmount">32,400</span></strong></p>
-        <p>Interest rate: <strong>8%</strong></p>
+      <h1>Get up to රු 500,000 loan fully online!</h1>
+      <p>Simple application process.<br>Only NIC is required.</p>
+      <div class="loan-card">
+        <label for="loanRange">Set up your loan</label>
+        <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
+        <input type="range" id="loanRange" min="30000" max="500000" step="1000" value="30000" />
+        <div class="range-labels">
+          <span>30,000</span>
+          <span>500,000</span>
+        </div>
+        <div class="summary">
+          <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
+          <p>Interest rate: <strong>8%</strong></p>
+        </div>
+        <button class="apply-btn">Apply for a loan</button>
+        <p class="login-text">Already a customer? <a href="#">Login here</a></p>
       </div>
     </div>
+  </div>
 
-    <button class="apply-btn">Apply for a loan</button>
-    <p class="login">Already a customer? <a href="#">Login here</a></p>
+  <div class="features-section">
+    <h2>අපගේ විශේෂත්වය</h2>
+    <div class="card">
+      <div class="icon">~</div>
+      <h3>ලභාදයකි</h3>
+      <p>ඔබ ගෙවිය යුතුය ඇතුළු අවම ආපසු ගෙවීම් මුදලක් නිසා අපගේ සේවාව සුපිරියකි</p>
+    </div>
+    <div class="card">
+      <div class="icon">✓</div>
+      <h3>විශ්වාසනීයයි</h3>
+      <p>CashX යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
+    </div>
+    <div class="card">
+      <div class="icon">101</div>
+      <h3>සරලයි</h3>
+      <p>ඉක්මන් සහ සරල මුදල් විස්දැම් ඔබගේ නිවසේ සිටම විනාඩි පහක කාලයක තුළ</p>
+    </div>
   </div>
 
   <script>
-    const slider = document.getElementById('loanSlider');
+    const loanRange = document.getElementById('loanRange');
     const loanAmount = document.getElementById('loanAmount');
     const repaymentAmount = document.getElementById('repaymentAmount');
 
-    function updateAmounts(value) {
-      loanAmount.textContent = parseInt(value).toLocaleString();
-      const interest = value * 0.08;
-      repaymentAmount.textContent = (parseFloat(value) + interest).toLocaleString(undefined, {maximumFractionDigits: 0});
-    }
-
-    slider.addEventListener('input', (e) => {
-      updateAmounts(e.target.value);
+    loanRange.addEventListener('input', function() {
+      const loan = parseInt(this.value);
+      const interest = 0.08;
+      const total = loan + loan * interest;
+      loanAmount.textContent = loan.toLocaleString();
+      repaymentAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
     });
-
-    // Initialize
-    updateAmounts(slider.value);
   </script>
-
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom: 20px;">අපගේ විශේෂත්ව</h2>
-
-      <div class="card">
-        <div class="icon">~</div>
-        <h2>ලභාදයකි</h2>
-        <p>ඔබ ගෙවිය යුතුය ඇතුළු අවම ආපසු ගෙවීම් මුදලක් නිසා අපගේ සේවාව සුපිරියකි</p>
-      </div>
-      <div class="card">
-        <div class="icon">✓</div>
-        <h2>විශ්වාසනීයයි</h2>
-        <p>CashX යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
-      </div>
-      <div class="card">
-        <div class="icon">101</div>
-        <h2>සරලයි</h2>
-        <p>ඉක්මන් සහ සරල මුදල් විස්දැම් ඔබගේ නිවසේ සිටම විනාඩි පහක කාලයක තුළ</p>
-      </div>
-    </div>
-  </body>
-</html>
-
+</body>
 </html>
