@@ -136,6 +136,64 @@
     .card h3 {
       margin: 10px 0 5px;
     }
+
+    footer {
+      background-color: #f1f5ff;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-info .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-info .icon {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    .footer-links {
+      margin: 15px 0;
+    }
+
+    .footer-links a {
+      margin: 0 10px;
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    .company-info {
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    .floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1e3a8a;
+      color: white;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -205,63 +263,59 @@
       </div>
     </div>
   </div>
-<!-- ... ඔබේ කලින් code එක -->
 
-<!-- Features section අවසානේ යාවත්කාලීන කොටස -->
-</div> <!-- main-container අවසාන -->
-
-<footer class="footer">
-  <div class="contact-info">
-    <div class="item">
-      <span class="icon">📞</span>
-      <div>
-        <strong>‪+94 11 7474 111‬</strong><br />
-        <span>සේවා මධ්‍යස්ථානය</span>
+  <!-- Footer Section Start -->
+  <footer class="footer">
+    <div class="contact-info">
+      <div class="item">
+        <span class="icon">📞</span>
+        <div>
+          <strong>+94 11 7474 111</strong><br />
+          <span>සේවා මධ්‍යස්ථානය</span>
+        </div>
+      </div>
+      <div class="item">
+        <span class="icon">✉</span>
+        <div>
+          <strong>info@cashx.lk</strong>
+        </div>
+      </div>
+      <div class="item">
+        <span class="icon">🕒</span>
+        <div>
+          <strong>සියලු දිනයන්හි පෙ.ව. 8.30 සිට ප.ව. 5.30 දක්වා</strong>
+        </div>
       </div>
     </div>
-    <div class="item">
-      <span class="icon">✉</span>
-      <div>
-        <strong>info@cashx.lk</strong>
-      </div>
+
+    <div class="company-info">
+      <p>
+        © 2019 - 2025 All Rights Reserved. A V Business Solutions (Private) Limited
+        is a company duly incorporated and registered under the laws of Sri Lanka,
+        with a company registration no. PV00211145 granted by the Registrar
+        General of Companies in Colombo. A V Business Solutions is a
+        personal loan direct lender and offers a wide range of credit products to
+        eligible borrowers.
+      </p>
     </div>
-    <div class="item">
-      <span class="icon">🕒</span>
-      <div>
-        <strong>සියලු දිනයන්හි පෙ.ව. 8.30 සිට ප.ව. 5.30 දක්වා</strong>
-      </div>
+
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Term & Conditions</a>
     </div>
-  </div>
 
-  <div class="company-info">
-    <p>
-      © 2019 - 2025 All Rights Reserved. A V Business Solutions (Private) Limited
-      is a company duly incorporated and registered under the laws of Sri Lanka,
-      with a company registration no. PV00211145 granted by the Registrar
-      General of Companies in Colombo. A V Business Solutions is a
-      personal loan direct lender and offers a wide range of credit products to
-      eligible borrowers.
-    </p>
-  </div>
+    <div class="floating-button">
+      <span>📞</span>
+    </div>
+  </footer>
+  <!-- Footer Section End -->
 
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Term & Conditions</a>
-  </div>
-
-  <div class="floating-button">
-    <span>📞</span>
-  </div>
-</footer>
-
-</body>
-</html>
   <script>
     const loanRange = document.getElementById('loanRange');
     const loanAmount = document.getElementById('loanAmount');
     const repaymentAmount = document.getElementById('repaymentAmount');
 
-    loanRange.addEventListener('input', function() {
+    loanRange.addEventListener('input', function () {
       const loan = parseInt(this.value);
       const interest = 0.08;
       const total = loan + loan * interest;
