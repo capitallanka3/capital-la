@@ -1,21 +1,24 @@
 body {
   font-family: 'Noto Sans Sinhala', sans-serif;
-  background-color: #f1f5ff;
+  background: #f1f5ff;
   margin: 0;
   padding: 0;
 }
 
 .main-container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
 }
 
 .loan-box {
-  background-color: #ffffff;
+  background: #ffffff;
   border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .loan-card {
@@ -24,7 +27,6 @@ body {
 
 .loan-amount {
   font-size: 24px;
-  font-weight: bold;
   margin: 10px 0;
 }
 
@@ -32,61 +34,30 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
+  margin-top: 5px;
 }
 
-.summary p {
-  margin: 5px 0;
+.summary {
+  margin-top: 20px;
+  font-size: 14px;
 }
 
 .apply-btn {
-  background-color: #1e3a8a;
+  background: #1e3a8a;
   color: white;
-  padding: 12px;
   border: none;
-  border-radius: 10px;
+  border-radius: 25px;
+  padding: 12px;
   width: 100%;
-  margin-top: 15px;
+  font-weight: bold;
   font-size: 16px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
 .login-text {
-  text-align: center;
   margin-top: 10px;
   font-size: 14px;
-}
-
-.login-text a {
-  color: #1e3a8a;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.features-section {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-}
-
-.features-section h2 {
-  text-align: center;
-  color: #1e3a8a;
-}
-
-.card {
-  background-color: #ffffff;
-  border-radius: 15px;
-  padding: 15px;
-  margin-top: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.card .icon {
-  background-color: #ffe066;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 5px 10px;
-  margin-bottom: 10px;
 }
 
 .steps-container {
@@ -134,18 +105,5 @@ body {
   font-weight: bold;
   border-radius: 50%;
   padding: 5px 7px;
-  font-size: 14px;
-}
-
-.submit-btn {
-  background: white;
-  color: #1e3a8a;
-  border: none;
-  border-radius: 25px;
-  padding: 12px;
-  width: 100%;
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 15px;
-  cursor: pointer;
+  font-size: 14px;
 }
