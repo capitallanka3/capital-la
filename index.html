@@ -36,10 +36,6 @@
       margin: 10px 0;
     }
 
-    input[type=range] {
-      width: 100%;
-    }
-
     .range-labels {
       display: flex;
       justify-content: space-between;
@@ -204,11 +200,15 @@
       <p>Simple application process.<br>Only NIC is required.</p>
       <label for="loanRange">Set up your loan</label>
       <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
-      <input type="range" id="loanRange" min="30000" max="500000" step="1000" value="30000" />
-      <div class="range-labels">
-        <span>30,000</span>
-        <span>500,000</span>
-      </div>
+
+      <!-- NEW SELECT DROPDOWN INSTEAD OF RANGE -->
+      <select id="loanRange" style="width: 100%; padding: 10px; border-radius: 8px;">
+        <option value="30000">30,000</option>
+        <option value="40000">40,000</option>
+        <option value="50000">50,000</option>
+        <option value="60000">60,000</option>
+      </select>
+
       <div class="summary">
         <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
         <p>Interest rate: <strong>8%</strong></p>
@@ -315,7 +315,7 @@
     const loanAmount = document.getElementById('loanAmount');
     const repaymentAmount = document.getElementById('repaymentAmount');
 
-    loanRange.addEventListener('input', function () {
+    loanRange.addEventListener('change', function () {
       const loan = parseInt(this.value);
       const interest = 0.08;
       const total = loan + loan * interest;
