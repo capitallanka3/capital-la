@@ -23,9 +23,6 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
 
     h1 {
@@ -55,14 +52,6 @@
       font-size: 14px;
     }
 
-    .installments-section {
-      margin-top: 15px;
-      font-size: 14px;
-      background: #e0f2fe;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
     .apply-btn {
       background-color: #1e3a8a;
       color: white;
@@ -76,15 +65,20 @@
       cursor: pointer;
     }
 
-    .login-text {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 10px;
+    .installment-section {
+      margin-top: 20px;
+      background-color: #eef2ff;
+      padding: 15px;
+      border-radius: 10px;
     }
 
-    .login-text a {
-      color: #1e3a8a;
-      text-decoration: none;
+    .installment-section ul {
+      padding-left: 20px;
+    }
+
+    .installment-section li {
+      margin-bottom: 5px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -94,7 +88,6 @@
     <div class="loan-card">
       <h1>Get up to රු 500,000 loan fully online!</h1>
       <p>Simple application process.<br>Only NIC is required.</p>
-
       <label for="loanRange">Set up your loan</label>
       <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
       <input type="range" id="loanRange" min="30000" max="500000" step="10000" value="30000" />
@@ -102,14 +95,13 @@
         <span>30,000</span>
         <span>500,000</span>
       </div>
-
       <div class="summary">
         <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
         <p>Interest rate: <strong>8%</strong></p>
       </div>
 
-      <div class="installments-section" id="installmentsSection">
-        <h3>වාරික වගුව</h3>
+      <div class="installment-section">
+        <h3>Installment Plan (6 Months)</h3>
         <ul id="installmentList"></ul>
       </div>
 
@@ -124,35 +116,28 @@
     const repaymentAmount = document.getElementById('repaymentAmount');
     const installmentList = document.getElementById('installmentList');
 
-    function updateInstallments(loan, total) {
-      const numberOfInstallments = 3;
-      const monthly = Math.round(total / numberOfInstallments);
-      const today = new Date();
-      installmentList.innerHTML = '';
-
-      for (let i = 0; i < numberOfInstallments; i++) {
-        const li = document.createElement('li');
-        const dueDate = new Date(today.getFullYear(), today.getMonth() + i + 1, 1);
-        const month = dueDate.toLocaleString('si-LK', { month: 'long' });
-        const year = dueDate.getFullYear();
-        li.textContent = වාරික ${i + 1}: රු ${monthly.toLocaleString()} - ${month} ${year};
-        installmentList.appendChild(li);
-      }
-    }
-
-    loanRange.addEventListener('input', function () {
-      const loan = parseInt(this.value);
+    function updateValues() {
+      const loan = parseInt(loanRange.value);
       const interest = 0.08;
       const total = loan + loan * interest;
+      const monthlyInstallment = Math.round(total / 6); // 6-month plan
 
       loanAmount.textContent = loan.toLocaleString();
       repaymentAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
 
-      updateInstallments(loan, total);
-    });
+      // Clear previous list
+      installmentList.innerHTML = '';
 
-    // Initial load
-    updateInstallments(30000, 32400);
+      // Add 6 monthly installments
+      for (let i = 1; i <= 6; i++) {
+        const li = document.createElement('li');
+        li.textContent = Installment ${i}: රු ${monthlyInstallment.toLocaleString()};
+        installmentList.appendChild(li);
+      }
+    }
+
+    loanRange.addEventListener('input', updateValues);
+    window.addEventListener('load', updateValues); // Initial load
   </script>
 
 </body>
