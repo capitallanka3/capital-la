@@ -103,9 +103,10 @@
 
     <label for="months">Select Installment Period (Months)</label>
     <select id="months">
+      <option value="3" selected>3 Months</option>
       <option value="6">6 Months</option>
       <option value="12">12 Months</option>
-       <option value="24">24 Months</option>
+      <option value="24" id="option24">24 Months</option>
     </select>
 
     <div class="summary">
@@ -129,12 +130,13 @@
   const installmentAmount = document.getElementById('installmentAmount');
   const totalAmount = document.getElementById('totalAmount');
   const selectedMonths = document.getElementById('selectedMonths');
+  const option24 = document.getElementById('option24');
 
   function updateValues() {
     const loan = parseInt(loanRange.value);
     const interest = 0.08;
     const total = loan + loan * interest;
-    const months = parseInt(monthsSelect.value);
+    let months = parseInt(monthsSelect.value);
     const monthlyInstallment = total / months;
 
     loanAmount.textContent = loan.toLocaleString();
@@ -142,6 +144,17 @@
     installmentAmount.textContent = Math.round(monthlyInstallment).toLocaleString();
     totalAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
     selectedMonths.textContent = months;
+
+    // Disable 24 months if loan < 50000
+    if (loan < 50000) {
+      option24.disabled = true;
+      if (months === 24) {
+        monthsSelect.value = "12";
+        months = 12;
+      }
+    } else {
+      option24.disabled = false;
+    }
   }
 
   loanRange.addEventListener('input', updateValues);
