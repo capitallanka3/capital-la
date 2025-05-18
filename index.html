@@ -84,6 +84,83 @@
       border: 1px solid #ccc;
       font-size: 14px;
     }
+
+    .login-text {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .login-text a {
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .steps-section {
+      margin-top: 30px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      background-color: #e0e7ff;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .step .number {
+      background-color: #1e3a8a;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .step.completed {
+      background-color: #d1fae5;
+    }
+
+    .step .check {
+      margin-left: auto;
+      font-size: 18px;
+      color: green;
+      font-weight: bold;
+    }
+
+    .features-section {
+      margin-top: 30px;
+    }
+
+    .features-section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background-color: #fef9c3;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card .icon {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .card h3 {
+      margin: 5px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -118,6 +195,54 @@
     <div class="installment-bar">
       වාරික: මාස <span id="selectedMonths">3</span> × රු <span id="installmentAmount">10,800</span> = රු <span id="totalAmount">32,400</span>
     </div>
+
+    <p class="login-text">Already a customer? <a href="#">0723979783</a></p>
+
+    <div class="steps-section">
+      <div class="step" id="step1">
+        <div class="number">1</div>
+        <div class="text">
+          <strong>අයදුම්පත සම්පූර්ණ කරන්න</strong><br>
+          අයදුම්පත සම්පූර්ණ කරන්න
+        </div>
+      </div>
+
+      <div class="step" id="step2">
+        <div class="number">2</div>
+        <div class="text">
+          <strong>තිරණය සඳහා රැදී සිටින්න</strong><br>
+          විනාඩි කිහිපයකින් තිරණය ඔබට ලැබෙනු ඇත
+        </div>
+      </div>
+
+      <div class="step completed" id="step3">
+        <div class="number">3</div>
+        <div class="text">
+          <strong>ඔබගේ ගිණුමට මුදල් ලැබාගෙන</strong><br>
+          අනුමත වී මිනිත්තු කිහිපයකින් ඔබේ ගිණුමට මුදල් ලැබේ
+        </div>
+        <div class="check">✔</div>
+      </div>
+    </div>
+
+    <div class="features-section">
+      <h2>අපගේ විශේෂත්වය</h2>
+      <div class="card">
+        <div class="icon">~</div>
+        <h3>ලභාදයකි</h3>
+        <p>ඔබ ගෙවිය යුතුය ඇතුළු අවම ආපසු ගෙවීම් මුදලක් නිසා අපගේ සේවාව සුපිරියකි</p>
+      </div>
+      <div class="card">
+        <div class="icon">✓</div>
+        <h3>විශ්වාසනීයයි</h3>
+        <p>Capital lanka යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
+      </div>
+      <div class="card">
+        <div class="icon">101</div>
+        <h3>සරලයි</h3>
+        <p>ඉක්මන් සහ සරල මුදල් විස්දැම් ඔබගේ නිවසේ සිටම විනාඩි පහක කාලයක තුළ</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -144,7 +269,6 @@
     totalAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
     selectedMonths.textContent = months;
 
-    // Disable 24 months if loan < 60000
     if (loan < 80000) {
       option24.disabled = true;
       if (months === 24) {
@@ -159,7 +283,6 @@
   loanRange.addEventListener('input', updateValues);
   monthsSelect.addEventListener('change', updateValues);
 
-  // Initial update
   updateValues();
 </script>
 
