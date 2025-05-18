@@ -2,8 +2,9 @@
 <html lang="si">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installment Loan App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Noto Sans Sinhala', sans-serif;
@@ -161,6 +162,43 @@
     .card p {
       font-size: 14px;
     }
+
+    footer {
+      background-color: #e0e7ff;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    .contact-info .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      margin-right: 15px;
+      color: #1e3a8a;
+      text-decoration: none;
+    }
+
+    .floating-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
@@ -193,10 +231,10 @@
     <button class="apply-btn">Apply for a loan</button>
 
     <div class="installment-bar">
-      වාරික: මාස <span id="selectedMonths">3</span> × රු <span id="installmentAmount">10,800</span> = රු <span id="totalAmount">32,400</span>
+      වාරික: මාස <span id="selectedMonths"></span> × රු <span id="installmentAmount"></span> = රු <span id="totalAmount"></span>
     </div>
 
-    <p class="login-text">Already a customer? <a href="#">0723979783</a></p>
+    <p class="login-text">Already a customer? <a href="tel:0723979783">0723979783</a></p>
 
     <div class="steps-section">
       <div class="step" id="step1">
@@ -235,7 +273,7 @@
       <div class="card">
         <div class="icon">✓</div>
         <h3>විශ්වාසනීයයි</h3>
-        <p>Capital lanka යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
+        <p>Capital Lanka යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
       </div>
       <div class="card">
         <div class="icon">101</div>
@@ -245,51 +283,48 @@
     </div>
   </div>
 </div>
-<footer class="footer">
-    <div class="contact-info">
-      <div class="item">
-        <span class="icon">📞</span>
-        <div>
-          <strong>0723979783</strong><br />
-          <span>සේවා මධ්‍යස්ථානය</span>
-        </div>
-      </div>
-      <div class="item">
-        <span class="icon">✉</span>
-        <div>
-          <strong>info@Capital.lk</strong>
-        </div>
-      </div>
-      <div class="item">
-        <span class="icon">🕒</span>
-        <div>
-          <strong>සියලු දිනයන්හි පෙ.ව. 8.30 සිට ප.ව. 5.30 දක්වා</strong>
-        </div>
-      </div>
-    </div>
 
-    <div class="company-info">
-      <p>
-        © 2019 - 2025 All Rights Reserved. A V Business Solutions (Private) Limited
-        is a company duly incorporated and registered under the laws of Sri Lanka,
-        with a company registration no. PV00211145 granted by the Registrar
-        General of Companies in Colombo. A V Business Solutions is a
-        personal loan direct lender and offers a wide range of credit products to
-        eligible borrowers.
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Term & Conditions</a>
-    </div>
-
-    <div class="floating-button">
+<footer>
+  <div class="contact-info">
+    <div class="item">
       <span>📞</span>
+      <div>
+        <strong>0723979783</strong><br />
+        <span>සේවා මධ්‍යස්ථානය</span>
+      </div>
     </div>
-  </footer>
+    <div class="item">
+      <span>✉</span>
+      <div>
+        <strong>info@Capital.lk</strong>
+      </div>
+    </div>
+    <div class="item">
+      <span>🕒</span>
+      <div>
+        <strong>සියලු දිනයන්හි පෙ.ව. 8.30 සිට ප.ව. 5.30</strong>
+      </div>
+    </div>
+  </div>
 
- <script>
+  <div class="company-info">
+    <p>
+      © 2019 - 2025 All Rights Reserved. A V Business Solutions (Private) Limited,
+      registered under Sri Lanka law. Reg no. PV00211145.
+    </p>
+  </div>
+
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+  </div>
+</footer>
+
+<div class="floating-button" onclick="window.location.href='tel:0723979783'">
+  📞
+</div>
+
+<script>
   const loanRange = document.getElementById('loanRange');
   const loanAmount = document.getElementById('loanAmount');
   const repaymentAmount = document.getElementById('repaymentAmount');
@@ -316,7 +351,7 @@
       option24.disabled = true;
       if (months === 24) {
         monthsSelect.value = "12";
-        months = 12;
+        updateValues();
       }
     } else {
       option24.disabled = false;
@@ -331,3 +366,5 @@
 
 </body>
 </html>
+
+
