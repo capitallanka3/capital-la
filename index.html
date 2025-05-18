@@ -65,152 +65,20 @@
       cursor: pointer;
     }
 
-    .login-text {
-      text-align: center;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    .login-text a {
-      color: #1e3a8a;
-      text-decoration: none;
-    }
-
-    .steps-section {
-      margin-top: 40px;
-    }
-
-    .step {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .step .number {
-      background: #cbd5e1;
-      color: #2563eb;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 12px;
-      margin-right: 15px;
-    }
-
-    .step .text {
-      font-size: 14px;
-    }
-
-    .step.completed .check {
-      position: absolute;
-      right: 0;
-      top: 10px;
-      background: #22c55e;
-      color: white;
-      font-weight: bold;
-      border-radius: 50%;
-      padding: 5px 8px;
-      font-size: 14px;
-    }
-
-    .features-section {
-      margin-top: 40px;
-    }
-
-    .card {
-      background-color: #f8f9fa;
-      border-radius: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-
-    .icon {
-      display: inline-block;
-      background-color: #ffe066;
-      border-radius: 10px;
-      padding: 10px;
-      margin-right: 10px;
-    }
-
-    .card h3 {
-      margin: 10px 0 5px;
-    }
-
-    footer {
-      background-color: #f1f5ff;
-      padding: 30px 20px;
-      text-align: center;
-      margin-top: 60px;
-      font-size: 14px;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .contact-info .item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .contact-info .icon {
-      font-size: 20px;
-      margin-right: 10px;
-    }
-
-    .footer-links {
-      margin: 15px 0;
-    }
-
-    .footer-links a {
-      margin: 0 10px;
-      color: #1e3a8a;
-      text-decoration: none;
-    }
-
-    .company-info {
-      margin-bottom: 20px;
-      padding: 0 10px;
-    }
-
-    .floating-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #1e3a8a;
-      color: white;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-
-    /* Progress bar styles */
     .progress-bar {
       width: 100%;
-      height: 20px;
-      background-color: #e5e7eb;
-      border-radius: 15px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      height: 10px;
+      margin: 10px 0;
       overflow: hidden;
-      margin: 15px 0;
     }
 
     .progress-bar-fill {
       height: 100%;
+      background-color: #2563eb;
       width: 0%;
-      background-color: #1e3a8a;
-      border-radius: 15px;
-      transition: width 0.3s ease;
+      transition: width 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -222,7 +90,12 @@
       <p>Simple application process.<br>Only NIC is required.</p>
       <label for="loanRange">Set up your loan</label>
       <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
+
       <input type="range" id="loanRange" min="30000" max="500000" step="10000" value="30000" />
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+
       <div class="range-labels">
         <span>30,000</span>
         <span>500,000</span>
@@ -231,106 +104,9 @@
         <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
         <p>Interest rate: <strong>8%</strong></p>
       </div>
-
-      <!-- Progress Bar -->
-      <div class="progress-bar">
-        <div class="progress-bar-fill" id="progressFill"></div>
-      </div>
-
       <button class="apply-btn">Apply for a loan</button>
-      <p class="login-text">Already a customer? <a href="#">0723979783</a></p>
-    </div>
-
-    <div class="steps-section">
-      <div class="step" id="step1">
-        <div class="number">1</div>
-        <div class="text">
-          <strong>අයදුම්පත සම්පූර්ණ කරන්න</strong><br>
-          අයදුම්පත සම්පූර්ණ කරන්න
-        </div>
-      </div>
-
-      <div class="step" id="step2">
-        <div class="number">2</div>
-        <div class="text">
-          <strong>තිරණය සඳහා රැදී සිටින්න</strong><br>
-          විනාඩි කිහිපයකින් තිරණය ඔබට ලැබෙනු ඇත
-        </div>
-      </div>
-
-      <div class="step completed" id="step3">
-        <div class="number">3</div>
-        <div class="text">
-          <strong>ඔබගේ ගිණුමට මුදල් ලැබාගෙන</strong><br>
-          අනුමත වී මිනිත්තු කිහිපයකින් ඔබේ ගිණුමට මුදල් ලැබේ
-        </div>
-        <div class="check">✔</div>
-      </div>
-    </div>
-
-    <div class="features-section">
-      <h2>අපගේ විශේෂත්වය</h2>
-      <div class="card">
-        <div class="icon">~</div>
-        <h3>ලභාදයකි</h3>
-        <p>ඔබ ගෙවිය යුතුය ඇතුළු අවම ආපසු ගෙවීම් මුදලක් නිසා අපගේ සේවාව සුපිරියකි</p>
-      </div>
-      <div class="card">
-        <div class="icon">✓</div>
-        <h3>විශ්වාසනීයයි</h3>
-        <p>Capital lanka යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
-      </div>
-      <div class="card">
-        <div class="icon">101</div>
-        <h3>සරලයි</h3>
-        <p>ඉක්මන් සහ සරල මුදල් විස්දැම් ඔබගේ නිවසේ සිටම විනාඩි පහක කාලයක තුළ</p>
-      </div>
     </div>
   </div>
-
-  <footer class="footer">
-    <div class="contact-info">
-      <div class="item">
-        <span class="icon">📞</span>
-        <div>
-          <strong>0723979783</strong><br />
-          <span>සේවා මධ්‍යස්ථානය</span>
-        </div>
-      </div>
-      <div class="item">
-        <span class="icon">✉</span>
-        <div>
-          <strong>info@Capital.lk</strong>
-        </div>
-      </div>
-      <div class="item">
-        <span class="icon">🕒</span>
-        <div>
-          <strong>සියලු දිනයන්හි පෙ.ව. 8.30 සිට ප.ව. 5.30 දක්වා</strong>
-        </div>
-      </div>
-    </div>
-
-    <div class="company-info">
-      <p>
-        © 2019 - 2025 All Rights Reserved. A V Business Solutions (Private) Limited
-        is a company duly incorporated and registered under the laws of Sri Lanka,
-        with a company registration no. PV00211145 granted by the Registrar
-        General of Companies in Colombo. A V Business Solutions is a
-        personal loan direct lender and offers a wide range of credit products to
-        eligible borrowers.
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Term & Conditions</a>
-    </div>
-
-    <div class="floating-button">
-      <span>📞</span>
-    </div>
-  </footer>
 
   <script>
     const loanRange = document.getElementById('loanRange');
@@ -345,8 +121,10 @@
       loanAmount.textContent = loan.toLocaleString();
       repaymentAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
 
-      // Update progress bar
-      const percentage = ((loan - 30000) / (500000 - 30000)) * 100;
+      // Update progress bar width
+      const min = parseInt(loanRange.min);
+      const max = parseInt(loanRange.max);
+      const percentage = ((loan - min) / (max - min)) * 100;
       progressFill.style.width = ${percentage}%;
     });
   </script>
