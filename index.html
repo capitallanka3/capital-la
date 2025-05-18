@@ -200,15 +200,6 @@
       font-size: 18px;
     }
 
-    /* Company info section custom styling */
-    .company-info {
-      background-color: #000000;
-      color: #90ee90;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
     /* Override strong to disable bold */
     strong {
       font-weight: normal;
@@ -217,7 +208,83 @@
 </head>
 <body>
 
-<!-- Main content unchanged for brevity -->
+<div class="main-container">
+  <div class="loan-card">
+    <h1>Get up to රු 500,000 loan fully online!</h1>
+    <p>Simple application process.<br>අවශ්‍ය වන්නේ ඔබේ ජාතික හැඳුනුම්පත පමණි, ලේඛන කටයුතු නැත. මිනිත්තු කිහිපයකින් මුදල් ලබා ගන්න.</p>
+
+    <label for="loanRange">Select your loan amount</label>
+    <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
+    <input type="range" id="loanRange" min="30000" max="500000" step="10000" value="30000" />
+    <div class="range-labels">
+      <span>30,000</span>
+      <span>500,000</span>
+    </div>
+
+    <label for="months">Select Installment Period (Months)</label>
+    <select id="months">
+      <option value="6">6 Months</option>
+      <option value="12">12 Months</option>
+      <option value="24" id="option24">24 Months</option>
+    </select>
+
+    <div class="summary">
+      <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
+      <p>Interest rate: <strong>8%</strong></p>
+    </div>
+
+    <button class="apply-btn">Apply for a loan</button>
+
+    <div class="installment-bar">
+      වාරික: මාස <span id="selectedMonths"></span> × රු <span id="installmentAmount"></span> = රු <span id="totalAmount"></span>
+    </div>
+
+    <p class="login-text">Already a customer? <a href="tel:0723979783">0723979783</a></p>
+
+    <div class="steps-section">
+      <div class="step" id="step1">
+        <div class="number">1</div>
+        <div class="text">
+          <strong>ඔබේ ණය මුදල තෝරන්න</strong><br>
+        </div>
+      </div>
+
+      <div class="step" id="step2">
+        <div class="number">2</div>
+        <div class="text">
+          <strong>තිරණය සඳහා රැදී සිටින්න</strong><br>
+        </div>
+      </div>
+
+      <div class="step" id="step3">
+        <div class="number">3</div>
+        <div class="text">
+          <strong>ඔබගේ ගිණුමට මුදල් ලැබාගෙන</strong><br>
+        </div>
+        <div class="check">✔</div>
+      </div>
+    </div>
+
+    <div class="features-section">
+      <h2>අපගේ විශේෂත්වය</h2>
+      <div class="card">
+        <div class="icon">~</div>
+        <h3>ලභාදයකි</h3>
+        <p>ඔබ ගෙවිය යුතුය ඇතුළු අවම ආපසු ගෙවීම් මුදලක් නිසා අපගේ සේවාව සුපිරියකි</p>
+      </div>
+      <div class="card">
+        <div class="icon">✓</div>
+        <h3>විශ්වාසනීයයි</h3>
+        <p>Capital Lanka යනු නව ප්‍රවේශයක් සහ වගකීමක් සහිතව සපයන සන්සුන් සහ සපයන්නෙකි</p>
+      </div>
+      <div class="card">
+        <div class="icon">101</div>
+        <h3>සරලයි</h3>
+        <p>ඉක්මන් සහ සරල මුදල් විස්දැම් ඔබගේ නිවසේ සිටම විනාඩි පහක කාලයක තුළ</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="contact-info">
@@ -242,7 +309,6 @@
     </div>
   </div>
 
-  <!-- Company info styled as requested -->
   <div class="company-info">
     <p>© 2019 - 2025 All Rights Reserved. A V Business Solutions (Private) Limited is a company duly incorporated and registered under the laws of Sri Lanka, with a company registration no. PV00211145 granted by the Registrar General of Companies in Colombo. A V Business Solutions operates as a personal loan direct lender and offers a wide range of online loans to eligible borrowers.</p>
   </div>
