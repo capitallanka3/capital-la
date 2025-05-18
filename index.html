@@ -145,8 +145,8 @@
     totalAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
     selectedMonths.textContent = months;
 
-    // Disable 24 months if loan < 50000
-    if (loan < 50000) {
+    // Disable 24 months if loan < 60000
+    if (loan < 60000) {
       option24.disabled = true;
       if (months === 24) {
         monthsSelect.value = "12";
