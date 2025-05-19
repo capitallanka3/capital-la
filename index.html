@@ -7,208 +7,382 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Noto Sans Sinhala', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
+
     .main-container {
       max-width: 600px;
-      margin: auto;
+      margin: 20px auto;
       padding: 20px;
-      background: #ffffff;
     }
-    h1, h2, h3 {
-      color: #1a237e;
-    }
+
     .loan-card {
+      background-color: #f1f5ff;
       padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      background: #f1f8e9;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    input[type="range"] {
-      width: 100%;
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
     }
+
     .loan-amount {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
       margin: 10px 0;
     }
+
+    input[type=range] {
+      width: 100%;
+    }
+
     .range-labels {
       display: flex;
       justify-content: space-between;
       font-size: 14px;
+      color: #555;
     }
+
+    .summary {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .apply-btn {
+      background-color: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px;
+      width: 100%;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .installment-bar {
+      background-color: #1e3a8a;
+      color: white;
+      border-radius: 25px;
+      padding: 12px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
     select {
       width: 100%;
       padding: 10px;
-      font-size: 16px;
       margin-top: 10px;
-    }
-    .summary {
-      margin-top: 15px;
-      font-size: 16px;
-      background: #e8f5e9;
-      padding: 10px;
       border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
-    .apply-btn {
-      display: block;
-      width: 100%;
-      background-color: #1e88e5;
-      color: #fff;
-      text-align: center;
-      padding: 14px;
-      border-radius: 8px;
-      font-size: 18px;
-      text-decoration: none;
-      margin-top: 15px;
-    }
-    .promo-section {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .promo-section img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .promo-button {
-      display: inline-block;
-      margin-top: 10px;
-      background: #43a047;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .installment-bar {
-      margin-top: 15px;
-      background: #bbdefb;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+
     .login-text {
-      margin-top: 20px;
+      margin-top: 15px;
       text-align: center;
       font-size: 14px;
     }
+
     .login-text a {
-      color: #0d47a1;
+      color: #1e3a8a;
       text-decoration: none;
       font-weight: bold;
     }
+
+    .steps-section {
+      margin-top: 30px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      background-color: #e0e7ff !important;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .step .number {
+      background-color: #1e3a8a;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .step .text {
+      font-weight: normal;
+    }
+
+    .step .check {
+      margin-left: auto;
+      font-size: 18px;
+      color: green;
+      font-weight: bold;
+    }
+
+    .features-section {
+      margin-top: 30px;
+    }
+
+    .features-section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card .icon {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .card h3 {
+      margin: 5px 0;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f9f9ff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin: 40px auto;
+      max-width: 500px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .promo-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .promo-text {
+      margin-top: 20px;
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .promo-button {
+      background-color: #3366ff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .promo-button:hover {
+      background-color: #254eda;
+    }
+
+    footer {
+      background-color: #000000;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+      color: #39ff14;
+    }
+
+    .contact-info {
+      background-color: #000000;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .contact-info .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .contact-info .item span,
+    .contact-info .item strong,
+    .contact-info .item div {
+      color: #39ff14;
+    }
+
+    .company-info {
+      background-color: #000000;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .company-info p {
+      color: #39ff14;
+      margin: 0;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      margin-right: 15px;
+      color: #39ff14 !important;
+      text-decoration: none;
+    }
+
     .floating-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #f44336;
+      background-color: #00bfff;
       color: white;
       padding: 15px;
       border-radius: 50%;
-      font-size: 24px;
-      text-align: center;
       cursor: pointer;
-      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <div class="main-container">
-    <div class="loan-card">
-      <h1>රු 500,000 දක්වා ණය අයදුම්පතක්!</h1>
-      <p>පෙර පියවර කිසිවක් නැහැ. ඔබේ ජාතික හැඳුනුම්පත පමණි.</p>
-
-      <label for="loanRange">ඔබට අවශ්‍ය ණය මුදල තෝරන්න:</label>
-      <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
-      <input type="range" id="loanRange" min="30000" max="500000" step="10000" value="30000" />
-      <div class="range-labels">
-        <span>30,000</span><span>500,000</span>
-      </div>
-
-      <label for="months">වාරික මාස ගණන තෝරන්න:</label>
-      <select id="months">
-        <option value="6">6 Months</option>
-        <option value="12">12 Months</option>
-        <option value="24" id="option24">24 Months</option>
-      </select>
-
-      <div class="summary">
-        <p>පූර්ණ ගෙවීම: රු <span id="repaymentAmount">32400</span></p>
-        <p>පැවැත්ම අත්‍යවශ්‍යය سود: <strong>8%</strong></p>
-      </div>
-
-      <a href="https://forms.gle/wMGu94kwG9XeDbEM9" class="apply-btn" target="_blank">Apply for a loan</a>
-
-      <div class="installment-bar">
-        වාරික: මාස <span id="selectedMonths">6</span> × රු <span id="installmentAmount"></span> = රු <span id="totalAmount"></span>
-      </div>
-
-      <p class="login-text">දැනටමත් පාරිභෝගිකයෙක්ද? <a href="tel:0724561373">0724561373</a> අමතන්න</p>
+<div class="main-container">
+  <div class="loan-card">
+    <h1>Get up to රු 500,000 loan fully online!</h1>
+    <p>Simple application process.<br>අවශ්‍ය වන්නේ ඔබේ ජාතික හැඳුනුම්පත පමණි,.</p>
+    <label for="loanRange">Select your loan amount</label>
+    <div class="loan-amount">රු <span id="loanAmount">30000</span></div>
+    <input type="range" id="loanRange" min="30000" max="500000" step="10000" value="30000" />
+    <div class="range-labels">
+      <span>30,000</span>
+      <span>500,000</span>
     </div>
 
-    <!-- Promo Section 1 -->
-    <div class="promo-section">
-      <img src="https://i.ibb.co/nMDZ3sMb/pexels-moose-photos-170195-1036622.jpg" alt="promo">
-      <p>ඔබේ මුල්ම ණය 15 මිනිත්තුවකින්!</p>
-      <a href="https://forms.gle/wMGu94kwG9XeDbEM9" class="promo-button" target="_blank">Apply for a loan</a>
+    <label for="months">Select Installment Period (Months)</label>
+    <select id="months">
+      <option value="6">6 Months</option>
+      <option value="12">12 Months</option>
+      <option value="24" id="option24">24 Months</option>
+    </select>
+
+    <div class="summary">
+      <p>Total repayment amount: රු <span id="repaymentAmount">32400</span></p>
+      <p>Interest rate: <strong>8%</strong></p>
     </div>
 
-    <!-- Promo Section 2 -->
-    <div class="promo-section">
-      <img src="https://i.ibb.co/q3W93MjW/features.png" alt="features">
-      <p>තීරණය 1 මිනිත්තුවකින් ලබාදෙයි</p>
-      <a href="https://forms.gle/wMGu94kwG9XeDbEM9" class="promo-button" target="_blank">Apply for a loan</a>
+    <button class="apply-btn" onclick="window.location.href='https://forms.gle/8tKg3LBv85T5Mb6D9'">Apply for a loan</button>
+
+    <div class="installment-bar">
+      වාරික: මාස <span id="selectedMonths"></span> × රු <span id="installmentAmount"></span> = රු <span id="totalAmount"></span>
     </div>
 
-    <!-- Promo Section 3 -->
-    <div class="promo-section">
-      <img src="https://i.ibb.co/xtC5Mrt8/Personal-Loan-for-Self-Employed.png" alt="application">
-      <p>අයදුම්පතක් පුරවන්න – ඉතා පහසුවෙන්</p>
-      <a href="https://forms.gle/wMGu94kwG9XeDbEM9" class="promo-button" target="_blank">Apply for a loan</a>
+    <p class="login-text">Already a customer? <a href="tel:0724561373">0724561373</a></p>
+
+    <div class="steps-section">
+      <!-- steps -->
+    </div>
+
+    <div class="features-section">
+      <!-- features -->
     </div>
   </div>
 
-  <div class="floating-button" onclick="window.location.href='tel:0724561373'">📞</div>
+  <!-- Promo Section 1 -->
+  <section class="promo-section">
+    <img src="https://i.ibb.co/nMDZ3sMb/pexels-moose-photos-170195-1036622.jpg" alt="Promo Image" class="promo-image" />
+    <div class="promo-text">
+      <p>Get first online loan within 15 minutes!</p>
+      <button class="promo-button" onclick="window.location.href='https://forms.gle/8tKg3LBv85T5Mb6D9'">Apply for a loan</button>
+    </div>
+  </section>
 
-  <script>
-    const loanRange = document.getElementById('loanRange');
-    const loanAmount = document.getElementById('loanAmount');
-    const repaymentAmount = document.getElementById('repaymentAmount');
-    const monthsSelect = document.getElementById('months');
-    const installmentAmount = document.getElementById('installmentAmount');
-    const totalAmount = document.getElementById('totalAmount');
-    const selectedMonths = document.getElementById('selectedMonths');
-    const option24 = document.getElementById('option24');
+  <!-- Promo Section 2 -->
+  <section class="promo-section">
+    <img src="https://i.ibb.co/q3W93MjW/features.png" alt="Promo Image" class="promo-image" />
+    <div class="promo-text">
+      <p>Wait for the decision<br>The decision is made in just 1 minute</p>
+      <button class="promo-button" onclick="window.location.href='https://forms.gle/8tKg3LBv85T5Mb6D9'">Apply for a loan</button>
+    </div>
+  </section>
 
-    function updateValues() {
-      const loan = parseInt(loanRange.value);
-      const interest = 0.08;
-      const total = loan + loan * interest;
-      let months = parseInt(monthsSelect.value);
-      const monthlyInstallment = total / months;
+  <!-- Promo Section 3 -->
+  <section class="promo-section">
+    <img src="https://i.ibb.co/xtC5Mrt8/Personal-Loan-for-Self-Employed.png" alt="Promo Image" class="promo-image" />
+    <div class="promo-text">
+      <p>Fill in the application form<br>You can leave a request by filling out the form</p>
+      <button class="promo-button" onclick="window.location.href='https://forms.gle/8tKg3LBv85T5Mb6D9'">Apply for a loan</button>
+    </div>
+  </section>
+</div>
 
-      loanAmount.textContent = loan.toLocaleString();
-      repaymentAmount.textContent = total.toLocaleString();
-      installmentAmount.textContent = Math.round(monthlyInstallment).toLocaleString();
-      totalAmount.textContent = total.toLocaleString();
-      selectedMonths.textContent = months;
+<footer>
+  <!-- footer content -->
+</footer>
 
-      if (loan < 80000) {
-        option24.disabled = true;
-        if (months === 24) {
-          monthsSelect.value = "12";
-          updateValues();
-        }
-      } else {
-        option24.disabled = false;
+<div class="floating-button" onclick="window.location.href='tel:0724561373'">📞</div>
+
+<script>
+  const loanRange = document.getElementById('loanRange');
+  const loanAmount = document.getElementById('loanAmount');
+  const repaymentAmount = document.getElementById('repaymentAmount');
+  const monthsSelect = document.getElementById('months');
+  const installmentAmount = document.getElementById('installmentAmount');
+  const totalAmount = document.getElementById('totalAmount');
+  const selectedMonths = document.getElementById('selectedMonths');
+  const option24 = document.getElementById('option24');
+
+  function updateValues() {
+    const loan = parseInt(loanRange.value);
+    const interest = 0.08;
+    const total = loan + loan * interest;
+    let months = parseInt(monthsSelect.value);
+    const monthlyInstallment = total / months;
+
+    loanAmount.textContent = loan.toLocaleString();
+    repaymentAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
+    installmentAmount.textContent = Math.round(monthlyInstallment).toLocaleString();
+    totalAmount.textContent = total.toLocaleString(undefined, { minimumFractionDigits: 0 });
+    selectedMonths.textContent = months;
+
+    if (loan < 80000) {
+      option24.disabled = true;
+      if (months === 24) {
+        monthsSelect.value = "12";
+        updateValues();
       }
+    } else {
+      option24.disabled = false;
     }
+  }
 
-    loanRange.addEventListener('input', updateValues);
-    monthsSelect.addEventListener('change', updateValues);
-
-    updateValues();
-  </script>
+  loanRange.addEventListener('input', updateValues);
+  monthsSelect.addEventListener('change', updateValues);
+  updateValues();
+</script>
 </body>
 </html>
