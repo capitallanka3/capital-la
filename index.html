@@ -441,6 +441,12 @@
       if (months === 24) {
         monthsSelect.value = "12";
         updateValues();
+        
+        if (loan < 50000) {
+      option24.disabled = true;
+      if (months === 5) {
+        monthsSelect.value = "12";
+        updateValues();
       }
     } else {
       option24.disabled = false;
